@@ -10,7 +10,6 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 public class Bot extends TelegramLongPollingBot {
     private final Weather weather = new Weather();
 
-    // Точка входа (метод main, в котором происходит создание и инициализация бота
     public static void main(String[] args) {
         try {
             Bot bot = new Bot();
@@ -21,25 +20,20 @@ public class Bot extends TelegramLongPollingBot {
         }
     }
 
-    /*
-    Создать и получить токен бота нужно в @BotFather в Telegram.
-     */
     @Override
     public String getBotUsername() {
-        return "Weather_Mikhailovka_Bot"; // Метод, который возвращает username бота.
+        return ""; //  Вставьте свой username бота.
     }
 
     @Override
     public String getBotToken() {
-        return "7046318676:AAG1LVPvkRTdb0V_KXJb9jrrTMU4dXoziKI"; // Метод, который возвращает token бота.
+        return ""; // Вставьте свой token бота.
     }
-
-    // Метод, отвечающий за обработку полученного сообщения.
     @Override
     public void onUpdateReceived(Update update) {
         if (update.hasMessage()) {
-            String messageText = update.getMessage().getText(); // Получаем текст сообщения пользователя
-            Long chatId = update.getMessage().getChatId(); // Получаем chatId пользователя
+            String messageText = update.getMessage().getText();
+            Long chatId = update.getMessage().getChatId(); 
             switch (messageText) {
                 case "/start" ->
                         sendMessage(
