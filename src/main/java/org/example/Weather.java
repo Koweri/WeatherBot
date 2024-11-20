@@ -7,10 +7,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Weather {
-    private String APIkey = "34e072219725530bc05a5ec67ee612b9"; // Здесь нужно вставить реальный API ключ
+    private String APIkey = ""; // Здесь нужно вставить реальный API ключ
     private String weatherText;
 
-    // Метод для подключения к Web-странице и получения с неё данных.
     public String getUrlContent(String urlAddress) {
         StringBuilder content = new StringBuilder();
         try {
@@ -36,7 +35,6 @@ public class Weather {
         return content.toString();
     }
 
-    // Метод, который получает текущую погоду в указанном городе.
     public String getWeather(String city) {
         String output = getUrlContent(
                 "https://api.openweathermap.org/data/2.5/weather?q="
